@@ -1,19 +1,35 @@
 
 import './App.css';
-import { Component } from 'react'
+import { Component, SetState } from 'react'
 import Form from './components/Form'
+import HoroscopeContainer from './components/HoroscopeContainer'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       userName: '',
-      userZodiac: ''
+      userZodiac: '',
+      horoscope: null
     }
   }
 
-  handleChange()  {
+  handleChange = (event) => {
+    const { name, value } = event.target
+    this.setState({
+      [name]: value
+    })
+  }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const URL = `https://aztro.sameerkumar.website/?sign=${this.state.userZodiac}&day=today`;
+    fetch(URL, {
+      method: 'POST'
+    }).then(response => response.json())
+      .then(data => this.setState({
+      horoscope: data
+    }))
   }
 
 
@@ -21,7 +37,8 @@ class App extends Component {
   return (
     <>
       <header> Welcome {this.state.userName}!</header>
-      <Form userName={this.state.userName} userZodiac={this.state.userZodiac}/>
+      {!this.state.horoscope ? <Form handleSubmit={this.handleSubmit} handleChange={this.handleChange} userName={this.state.userName} userZodiac={this.state.userZodiac}/> :
+      <HoroscopeContainer horoscope={this.state.horoscope} />}
 
     </>
   )

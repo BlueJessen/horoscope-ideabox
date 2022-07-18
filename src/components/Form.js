@@ -1,10 +1,11 @@
 import React from 'react'
 
 const Form = (props) => {
-  return <form onChange='hello'>
-  <input type='text' name='userName' value={props.userName} placeholder='Please Enter Your Name'></input>
+  const {handleChange, handleSubmit, userName, userZodiac } = props
+  return <form>
+  <input className= 'name-input' onChange={handleChange} type='text' name='userName' value={userName} placeholder='Please Enter Your Name'></input>
   <br/>
-  <select name='userZodiac'>
+  <select onChange={handleChange} name='userZodiac'>
     <option>----Please pick a sign-----</option>
     <option value='aries'>Aries</option>
     <option value='aquarius'>Aquarius</option>
@@ -20,7 +21,7 @@ const Form = (props) => {
     <option value='virgo'>Virgo</option>
   </select>
   <br/>
-  <button>Submit</button>
+  <button onClick={handleSubmit}>Submit</button>
   </form>
 }
 
