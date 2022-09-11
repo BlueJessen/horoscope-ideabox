@@ -6,7 +6,7 @@
 - Clone the repository down to your machine.
 - CD into the project
 - npm install
-- npm i -D cypress
+- npm install cypress --save-dev
 
 Happy Coding!
 
@@ -15,16 +15,25 @@ Happy Coding!
 Today you will be making a horoscope App! We reccommend you time yourself 3 hours for this practice.
 Here are some user stories we are looking for this app:
 
-- When a user pulls up the application they should see a form asking for their zodiac sign
+Iteration 1: 
+- When a user pulls up the application they should see a form asking for their zodiac sign with a drop down menu of options
 - The user should be able to enter their name
-- When the user presses 'submit' their horoscope results should show on the homepage with their zodiac and name
-- The user should be able to press a button and return to a new form to request another horoscope
+
+Iteration 2: 
+- Create an apiCall so when the user submits their zodiac sign results should show replacing the form with zodiac and name
+- The user should be able to press a button and return to a new empty form to request another horoscope
+
+Iteration 3: 
+- Test that your app follows the above user stories here are some ideas of what your testing suite should test
+    - The user can select an option from the drop down menu and have it show in the Input field
+    - The user can type their name and have the value be shown in the input field
+    - When the user puts in their horoscope the apropriate horoscope is shown for the day. (remember to stub your api call) 
 
 
 Possible Extensions!
 
+- Add options for today, tomorrow, or yesterday for the horoscope in the form of radio buttons
 - User can enter birthday instead of zodiac sign and it should still return the correct zodiac!
-- Add options for today, tomorrow, or yesterday for the horoscope
 - Install Router and make the page change when a horoscope is calculated
 
 *Some icons have been provided in the folder src/zodiac-symbols*
