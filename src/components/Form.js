@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 export const Form = () => {
-    const [name, setName] = useState('');
+    const [name, setName] = useState(false);
     const zodiacs = [
         'aquarius', 
         'aries', 
@@ -17,6 +17,10 @@ export const Form = () => {
         'taurus',
         'virgo'
     ];
+
+    const handleChange = (e) => {
+        setName(e.target.value);
+    }
     return(
         <form>
             <select>
@@ -25,8 +29,10 @@ export const Form = () => {
                     })}
             </select>
             <label>
-                Name: <input name="userName"/>
+                Name: <input onChange={handleChange} name="userName"/>
             </label>
+            {name?<p>Welcome, {name}</p>:<></>}
+            <button>Get My Horoscope!</button>
         </form>
     )
 }
