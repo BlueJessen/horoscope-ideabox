@@ -32,7 +32,7 @@ export const Form = () => {
                 Name: <input onChange={handleChange} name="userName"/>
             </label>
             {name?<p>Welcome, {name}</p>:<></>}
-            <button>Get My Horoscope!</button>
+            <button onClick={() => console.log(e)}>Get My Horoscope!</button>
         </form>
     )
 }
