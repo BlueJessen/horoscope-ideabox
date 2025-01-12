@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 export const Form = () => {
+    const [name, setName] = useState('');
     const zodiacs = [
         'aquarius', 
         'aries', 
