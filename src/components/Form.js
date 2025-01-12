@@ -24,7 +24,9 @@ export const Form = () => {
                     return <option key={sign} value={sign}>{sign.toUpperCase()}</option>
                     })}
             </select>
-            <input type="text"></input>
+            <label>
+                Name: <input name="userName"/>
+            </label>
         </form>
     )
 }
