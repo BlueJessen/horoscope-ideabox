@@ -1,10 +1,27 @@
 import React from 'react';
+import { useState } from 'react';
 
 export const Form = () => {
+    const zodiacs = [
+        'aquarius', 
+        'aries', 
+        'cancer', 
+        'capricorn', 
+        'gemini',
+        'leo',
+        'libra',
+        'pisces',
+        'sagittarius',
+        'scorpio',
+        'taurus',
+        'virgo'
+    ];
     return(
         <form>
             <select>
-                <option value="leo">Leo</option>
+                {zodiacs.map((sign) => {
+                    return <option key={sign} value={sign}>{sign.toUpperCase()}</option>
+                    })}
             </select>
             <input type="text"></input>
         </form>
