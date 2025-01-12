@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 export const Form = () => {
     const [name, setName] = useState(false);
+    const [sign, setSign] = useState('')
     const zodiacs = [
         'aquarius', 
         'aries', 
@@ -18,21 +19,27 @@ export const Form = () => {
         'virgo'
     ];
 
-    const handleChange = (e) => {
-        setName(e.target.value);
+    const handleChange = (e, type) => {
+        type === 'name' ? setName(e.target.value): setSign(e.target.value);
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+    }
+
     return(
         <form>
-            <select>
+            <select onChange={(e) => handleChange(e, 'zodiac')}>
                 {zodiacs.map((sign) => {
                     return <option key={sign} value={sign}>{sign.toUpperCase()}</option>
                     })}
             </select>
             <label>
-                Name: <input onChange={handleChange} name="userName"/>
+                Name: <input onChange={(e) => handleChange(e, 'name')} name="userName"/>
             </label>
             {name?<p>Welcome, {name}</p>:<></>}
-            <button onClick={() => console.log(e)}>Get My Horoscope!</button>
+            <button onClick={handleSubmit}>Get My Horoscope!</button>
         </form>
     )
 }
