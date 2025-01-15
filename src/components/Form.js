@@ -4,6 +4,7 @@ import { useState } from 'react';
 export const Form = () => {
     const [name, setName] = useState(false);
     const [sign, setSign] = useState('')
+    const [message, setMessage] = useState(false);
     const zodiacs = [
         'aquarius', 
         'aries', 
@@ -26,18 +27,26 @@ export const Form = () => {
 
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        let url = `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${sign}&day=TODAY`;
-        try {
-            const response = await fetch(url)
-            if(!response.ok) {
-                throw new Error(`error: ${response.status}`);
-            }
-            let data = await response.json();
-            console.log(data, 'data')
-        } catch(error) {
-            console.error(error.message)
-        }
+        setMessage(`Being a ${sign} means you should be weary of any caffeine tomorrow.`)
+        //   const myHeaders = new Headers();
+        //     myHeaders.append("Accept", "application/json");
+        // e.preventDefault();
+        // let url = `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=aquarius&day=TODAY`;
+        // try {
+        //     const response = await fetch(url,{
+        //         method: 'GET',
+        //         headers: myHeaders,
+        //         redirect:"follow"
+        //     })
+
+        //     if(!response.ok) {
+        //         throw new Error(`error: ${response.status}`);
+        //     }
+        //     let data = await response.json();
+        //     console.log(data, 'data')
+        // } catch(error) {
+        //     console.error(error.message)
+        // }
     } 
 
     return(
@@ -51,6 +60,7 @@ export const Form = () => {
                 Name: <input onChange={(e) => handleChange(e, 'name')} name="userName"/>
             </label>
             {name?<p>Welcome, {name}</p>:<></>}
+            {message?<p>{message}</p> : <></>}
             <button onClick={handleSubmit}>Get My Horoscope!</button>
         </form>
     )
