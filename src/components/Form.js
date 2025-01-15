@@ -23,10 +23,22 @@ export const Form = () => {
         type === 'name' ? setName(e.target.value): setSign(e.target.value);
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
 
-    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        let url = `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${sign}&day=TODAY`;
+        try {
+            const response = await fetch(url)
+            if(!response.ok) {
+                throw new Error(`error: ${response.status}`);
+            }
+            let data = await response.json();
+            console.log(data, 'data')
+        } catch(error) {
+            console.error(error.message)
+        }
+    } 
 
     return(
         <form>
