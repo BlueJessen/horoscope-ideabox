@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './App.css';
 
 export const Form = () => {
     const [name, setName] = useState(false);
