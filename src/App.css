@@ -1,14 +1,37 @@
 body {
   background-color: rgb(78, 23, 61);
   color:#fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
 }
 
 .advice-container {
+  padding:1rem;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+button {
+  background:rgb(123, 210, 202);
+  color: rgb(0, 0, 0);
+  padding: 1rem;
+  width: 50%;
+  margin: .5rem;
+  border-radius: 8px 8px 5px 5px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+button:hover{
+  cursor: pointer;
+  background:rgb(119, 174, 197);
 
 }

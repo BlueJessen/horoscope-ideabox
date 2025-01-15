@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import './App.css';
+import '../App.css';
 
 export const Form = () => {
     const [name, setName] = useState(false);
@@ -51,7 +51,7 @@ export const Form = () => {
     } 
 
     return(
-        <form>
+        <form class="form-container">
             <select onChange={(e) => handleChange(e, 'zodiac')}>
                 {zodiacs.map((sign) => {
                     return <option key={sign} value={sign}>{sign.toUpperCase()}</option>
@@ -61,7 +61,7 @@ export const Form = () => {
                 Name: <input onChange={(e) => handleChange(e, 'name')} name="userName"/>
             </label>
             {name?<p>Welcome, {name}</p>:<></>}
-            {message?<p>{message}</p> : <></>}
+            {message?<p class="advice-container">{message}</p> : <></>}
             <button onClick={handleSubmit}>Get My Horoscope!</button>
         </form>
     )
