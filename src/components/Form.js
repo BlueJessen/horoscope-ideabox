@@ -26,11 +26,11 @@ export const Form = () => {
 
 
 
-    const handleSubmit = async (e) => {
-        setMessage(`Being a ${sign} means you should be weary of any caffeine tomorrow.`)
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setMessage(`Being a ${sign} means you should be weary of any caffeine tomorrow.`);
         //   const myHeaders = new Headers();
         //     myHeaders.append("Accept", "application/json");
-        // e.preventDefault();
         // let url = `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=aquarius&day=TODAY`;
         // try {
         //     const response = await fetch(url,{
